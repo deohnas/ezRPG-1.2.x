@@ -17,6 +17,10 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     die('You must initialize composer!');
 }
 
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
 // This page cannot be viewed, it must be included
 defined('IN_EZRPG') or exit;
 global $debugTimer;
